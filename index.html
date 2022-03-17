@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC>
+
+<html>
+
+<!-- THEME BY BONES | NUCLEARTHEMES -->
+
+<!--
+
+>> CREDITS
+
+• Custom tooltips by Atomiks >> https://atomiks.github.io/tippyjs/
+• Fonts from Google >> https://fonts.google.com/
+• Icons from Font Awesome >> https://fontawesome.com/
+• Placeholders from Unsplash >> https://unsplash.com/
+• Tumblr controls fix by odeysseus >> https://odeysseus.tumblr.com/
+
+
+>> KNOWN ISSUES & QUICK FIXES
+
+• the image is supposed to slide out of view when your screen gets smaller. if it doesn't entirely disappear, search for "#container img {margin-left: -800px;}" and change the -800 to something like -1000
+• you can add more custom links by copy pasting the appropriate code. should the links then appear too close together, increase the max-width of #navigation {}! make sure you increase the "max-width" and not "width", otherwise it doesn't work
+
+-->
+ 
+<head>
+ 
+<title>{Chaii} / title</title> <!-- page title -->
+
+<link rel="shortcut icon" href="{Favicon}">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700,700i|Roboto+Mono:400,400i,700,700i" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/802dca85f3.js" crossorigin="anonymous"></script>
+
+<style type="text/css">
+
+* {margin:0; padding:0;}
+
+/* ----------------------------------------------------------------------- */
+/* ------------------------- MAIN CUSTOMIZATION -------------------------- */
+/* ----------- customize colors, fonts, sizes and other here! ------------ */
+/* ----------------------------------------------------------------------- */
+
+:root {
+    --background: #9b9999;
+    --container: #E6E6E6;
+    --text: #9b9999;
+    --accent: #ffffff;
+    --link: #9b9999;
+    --hover: #E6E6E6;
+    
+    --font-text: Helvetica;
+    --font-special: Roboto Mono;
+    
+    --font-size: 14px;
+    
+    --border-radius: 20px;
+}
+
+/* ----------------------------------------------------------------------- */
+/* --------------------------- tumblr controls --------------------------- */
+/* ----------------------------------------------------------------------- */
+
+.tmblr-iframe {
+    filter: invert(100%);
+    -o-filter: invert(100%); 
+    -moz-filter: invert(100%); 
+    -ms-filter: invert(100%); 
+    -webkit-filter: invert(100%); 
+    opacity: 0.2;
+    position: fixed;
+    right: 5px;
+    top: 5px;
+    transform: scale(0.7,0.7);
+    transform-origin: 100% 0%;
+    -ms-transform-origin: 100% 0%;
+    -webkit-transform-origin: 100% 0%;
+    transition: 0.4s;
+    -o-transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -webkit-transition: 0.4s;
+    white-space: nowrap;
+} 
+    
+.tmblr-iframe:hover {
+    opacity: 1; 
+}
+
+/* ----------------------------------------------------------------------- */
+/* --------------------------- custom tooltips --------------------------- */
+/* ----------------------------------------------------------------------- */
+
+.tippy-tooltip.custom-theme {
+    background-color: var(--background);
+    border: 3px solid var(--accent);
+    border-radius: 0;
+    color: var(--accent);
+    font-family: var(--font-special);
+    font-size: inherit;
+    text-align: center;
+}
+
+/* ----------------------------------------------------------------------- */
+/* -------------------- custom selection & scrollbar --------------------- */
+/* ----------------------------------------------------------------------- */
+
+::-moz-selection {background: var(--background); color: var(--accent);}
+::selection {background: var(--background); color: var(--accent);}
+
+::-webkit-scrollbar-thumb 
+{background: var(--accent); border: 5px solid var(--background); border-radius: 20px;}
+::-webkit-scrollbar-track 
+{background: var(--container); border: 8px solid var(--background);}
+::-webkit-scrollbar 
+{width: 20px;}
+
+/* ----------------------------------------------------------------------- */
+/* ----------------------------- page layout ----------------------------- */
+/* ----------------------------------------------------------------------- */
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: var(--font-text);
+    font-size: var(--font-size);
+    letter-spacing: 0.025em;
+    line-height: 160%;
+    overflow: hidden;
+    text-align: justify;
+}
+
+#container {
+    background-color: var(--container);
+    border-radius: var(--border-radius);
+    height: 400px;
+    margin: 125px auto;
+    max-width: 700px;
+    padding: 20px;
+    width: 85%;
+}
+
+i {line-height: 160%;}
+
+/* ----------------------------------------------------------------------- */
+/* ------------------------------- content ------------------------------- */
+/* ----------------------------------------------------------------------- */
+
+#navigation {
+    display: flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    height: 43px;
+    justify-content: space-between;
+    margin-left: -20px;
+    max-width: 290px;
+    position: fixed;
+    top: 580px;
+    width: 50%;
+}
+
+.navlink {
+    background-color: var(--container);
+    border-radius: calc(var(--border-radius) * 0.5);
+    border-radius: -moz-calc(var(--border-radius) * 0.5);
+    border-radius: -webkit-calc(var(--border-radius) * 0.5);
+    color: var(--background);
+    padding: 12px 10px 9px 10px;
+    text-align: center;
+    width: 20px;
+}
+
+.navlink:hover {
+    background-color: var(--background);
+    color: var(--accent);
+    transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+}
+
+#container img {
+    background-color: var(--accent);
+    border-radius: var(--border-radius);
+    height: 400px;
+    position: fixed;
+    width: 300px;
+}
+
+#content {
+    height: 400px;
+    margin-left: 320px;
+    margin-top: 2px;
+    overflow: auto;
+    -moz-overflow-style: none;
+    -ms-overflow-style: none;
+    -o-overflow-style: none;
+}
+
+#content::-webkit-scrollbar {display: none;}
+
+/* ----------------------------------------------------------------------- */
+/* -------------------------------- text --------------------------------- */
+/* ----------------------------------------------------------------------- */
+
+h1 {
+    font-family: var(--font-special);
+    font-size: 2.5em;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: var(--font-special);
+    font-size: 1.8em;
+    font-weight: normal;
+    margin: 10px 5px;
+    text-transform: none;
+}
+
+a:hover {color: var(--hover);}
+a {color: var(--link); text-decoration: none;}
+#content a {border-bottom: 3px solid var(--link);}
+#content a:hover {border-bottom: 3px solid var(--hover);}
+
+/* ----------------------------------------------------------------------- */
+/* ---------------------------- transitions ------------------------------ */
+/* ----------------------------------------------------------------------- */
+
+a, a:hover, #content {
+    transition: 0.4s;
+    -moz-transition: 0.4s;
+    -ms-transition: 0.4s;
+    -o-transition: 0.4s;
+    -webkit-transition: 0.4s;
+}
+
+#credit, #credit:hover, img {
+    transition: 0.8s ease-out;
+    -moz-transition: 0.8s ease-out;
+    -ms-transition: 0.8s ease-out;
+    -o-transition: 0.8s ease-out;
+    -webkit-transition: 0.8s ease-out;
+}
+
+blink {animation: blink 1.5s infinite; margin-left: -5px;}
+@keyframes blink { 0% {opacity: 0} 49%{opacity: 0} 50% {opacity: 1} }
+
+/* ----------------------------------------------------------------------- */
+/* ------------------------------- credits ------------------------------- */
+/* ----------------------------------------------------------------------- */
+
+#credit {
+    color: var(--accent);
+    bottom: 0;
+    font-size: 20px;
+    font-style: italic;
+    margin: 10px;
+    padding: 10px 0px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    width: 40px;
+}
+
+#credit:hover {
+    transform: rotate(360deg) scale(1.5);
+    -moz-transform: rotate(360deg) scale(1.5);
+    -ms-transform: rotate(360deg) scale(1.5);
+    -o-transform: rotate(360deg) scale(1.5);
+    -webkit-transform: rotate(360deg) scale(1.5);
+}
+
+/* ----------------------------------------------------------------------- */
+/* ----------------------------- responsive ------------------------------ */
+/* ----------------------------------------------------------------------- */
+
+@media only screen and (max-width: 700px){
+    #container img {margin-left: -1000px;}
+    #content {margin-left: 0; width: 100%;}
+}
+    
+</style>
+    
+</head>
+
+<!-------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------->
+<!-------------------------- HEAD & BODY DIVIDER --------------------------->
+<!-------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------->
+
+<body>
+
+<!--------------------------- START MAIN CONTENT---------------------------->
+
+<div id="container">
+
+    <img src="https://img.xatblog.net/image/d6wcJDLD2PY.png"> <!-- image -->
+    
+    <div id="content">
+        
+        <h1>차이 <blink> ♡</blink></h1> <!-- main title -->
+        
+<i>Pleased to meet you cutie. I go by Chai, but get to know me first! If you can't get ahold of me... I may already be reading a shoujo manga.. I'm from Chicago,IL; birthdate August 16th, listening to lofi and reading romance soothes my soul. Enjoying the company of a new friend w/ new interests is always appreciated!</i>  <b>message me sometime..</b>
+
+<br><br>
+
+ 
+
+<h2>𝘪𝘭𝘭𝘶𝘮𝘪𝘯𝘢𝘵𝘪𝘯𝘨 𝘷𝘪𝘣𝘦𝘴</h2>
+
+Nothing feels better than knowing the people you meet kinder the same vibes as you. We walk different forms of life, but some how we connect and it makes my heart flutter. I love learning new interest from others such as music, culture, lingo, perspectives, and it all begins w/ a simple hello.     
+    </div>
+    
+    <!-- navigation -->
+    
+    <div id="navigation">
+    
+        <!-- home link -->
+        
+        <a class="navlink" title="home" href="/">
+            <i class="fas fa-home"></i>
+        </a>
+        
+        <!-- ask link -->
+        
+        <a class="navlink" title="MamaChaii#0016" href="https://discord.com/">
+            <i class="fas fa-envelope"></i>
+        </a>
+        
+        <!-- custom link 1 -->
+        
+        <a class="navlink" title="Papa" href="https://xat.me/Isaac">
+            <i class="fas fa-user"></i>
+        </a>
+        
+        <!-- custom link 2 -->
+        
+        <a class="navlink" title="Zan" href="https://xat.me/AylenArcadia">
+            <i class="fas fa-user"></i>
+        </a>
+        
+        <!-- custom link 3 -->
+        
+        <a class="navlink" title="Sonic" href="https://xat.me/MisterHedgehog">
+            <i class="fas fa-user"></i>
+        </a>
+     
+      <!-- custom link 4 -->
+        
+        <a class="navlink" title="Raid" href="https://xat.me/xRaidSendo">
+            <i class="fas fa-user"></i>
+        </a>
+        
+    </div>
+    
+</div>
+
+<!---------------------------- END MAIN CONTENT----------------------------->
+
+<!-- don't edit beyond this point please! colors can be modified in <style> -->
+
+<a id="credit" target="blank" title="by bones" href="https://nuclearthemes.tumblr.com/"><i class="fas fa-skull"></i></a>
+
+<script src="https://unpkg.com/popper.js@1"></script>
+<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
+
+<script>
+    tippy('[title]', {
+        theme: 'custom',
+        arrow: false,
+        delay: [100, 50],
+        placement: 'right',
+        zIndex: 9999999999,
+        maxWidth: 300,
+
+        content(reference) {
+            const title = reference.getAttribute('title');
+            reference.removeAttribute('title');
+            return title;
+        },
+    });
+</script>
+
+</body>
+
+</html>
