@@ -1,407 +1,895 @@
-<!DOCTYPE html PUBLIC>
-
-<html>
-
-<!-- THEME BY BONES | NUCLEARTHEMES -->
-
-<!--
->> CREDITS
-• Custom tooltips by Atomiks >> https://atomiks.github.io/tippyjs/
-• Fonts from Google >> https://fonts.google.com/
-• Icons from Font Awesome >> https://fontawesome.com/
-• Placeholders from Unsplash >> https://unsplash.com/
-• Tumblr controls fix by odeysseus >> https://odeysseus.tumblr.com/
->> KNOWN ISSUES & QUICK FIXES
-• the image is supposed to slide out of view when your screen gets smaller. if it doesn't entirely disappear, search for "#container img {margin-left: -800px;}" and change the -800 to something like -1000
-• you can add more custom links by copy pasting the appropriate code. should the links then appear too close together, increase the max-width of #navigation {}! make sure you increase the "max-width" and not "width", otherwise it doesn't work
--->
+<style>
+  /*
+TABBED CONTENT:
+Renato Zannon @ Stackoverflow
  
-<head>
+MENU DROP-DOWN:
+fukuo.tumblr.com
  
-<title>{Chaii} / title</title> <!-- page title -->
-
-<link rel="shortcut icon" href="{Favicon}">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css?family=Nunito:400,400i,700,700i|Roboto+Mono:400,400i,700,700i" rel="stylesheet">
-
-<script src="https://kit.fontawesome.com/802dca85f3.js" crossorigin="anonymous"></script>
-
-<style type="text/css">
-
-* {margin:0; padding:0;}
-
-/* ----------------------------------------------------------------------- */
-/* ------------------------- MAIN CUSTOMIZATION -------------------------- */
-/* ----------- customize colors, fonts, sizes and other here! ------------ */
-/* ----------------------------------------------------------------------- */
-
-:root {
-    --background: #698aad;
-    --container: #a2bfd6;
-    --text: #698aad;
-    --accent: #ffffff;
-    --link: #698aad;
-    --hover: #a2bfd6;
-    
-    --font-text: Helvetica;
-    --font-special: Roboto Mono;
-    
-    --font-size: 14px;
-    
-    --border-radius: 20px;
-}
-
-/* ----------------------------------------------------------------------- */
-/* --------------------------- tumblr controls --------------------------- */
-/* ----------------------------------------------------------------------- */
-
-.tmblr-iframe {
-    filter: invert(100%);
-    -o-filter: invert(100%); 
-    -moz-filter: invert(100%); 
-    -ms-filter: invert(100%); 
-    -webkit-filter: invert(100%); 
-    opacity: 0.2;
-    position: fixed;
-    right: 5px;
-    top: 5px;
-    transform: scale(0.7,0.7);
-    transform-origin: 100% 0%;
-    -ms-transform-origin: 100% 0%;
-    -webkit-transform-origin: 100% 0%;
-    transition: 0.4s;
-    -o-transition: 0.4s;
-    -moz-transition: 0.4s;
-    -ms-transition: 0.4s;
-    -webkit-transition: 0.4s;
-    white-space: nowrap;
-} 
-    
-.tmblr-iframe:hover {
-    opacity: 1; 
-}
-
-/* ----------------------------------------------------------------------- */
-/* --------------------------- custom tooltips --------------------------- */
-/* ----------------------------------------------------------------------- */
-
-.tippy-tooltip.custom-theme {
-    background-color: var(--background);
-    border: 3px solid var(--accent);
-    border-radius: 0;
-    color: var(--accent);
-    font-family: var(--font-special);
-    font-size: inherit;
-    text-align: center;
-}
-
-/* ----------------------------------------------------------------------- */
-/* -------------------- custom selection & scrollbar --------------------- */
-/* ----------------------------------------------------------------------- */
-
-::-moz-selection {background: var(--background); color: var(--accent);}
-::selection {background: var(--background); color: var(--accent);}
-
-::-webkit-scrollbar-thumb 
-{background: var(--accent); border: 5px solid var(--background); border-radius: 20px;}
-::-webkit-scrollbar-track 
-{background: var(--container); border: 8px solid var(--background);}
-::-webkit-scrollbar 
-{width: 20px;}
-
-/* ----------------------------------------------------------------------- */
-/* ----------------------------- page layout ----------------------------- */
-/* ----------------------------------------------------------------------- */
-
-body {
-    background: var(--background);
-    color: var(--text);
-    font-family: var(--font-text);
-    font-size: var(--font-size);
-    letter-spacing: 0.025em;
-    line-height: 160%;
-    overflow: hidden;
-    text-align: justify;
-}
-
-#container {
-    background-color: var(--container);
-    border-radius: var(--border-radius);
-    height: 400px;
-    margin: 125px auto;
-    max-width: 700px;
-    padding: 20px;
-    width: 85%;
-}
-
-i {line-height: 160%;}
-
-/* ----------------------------------------------------------------------- */
-/* ------------------------------- content ------------------------------- */
-/* ----------------------------------------------------------------------- */
-
-#navigation {
-    display: flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-box;
-    display: -webkit-flex;
-    height: 43px;
-    justify-content: space-between;
-    margin-left: -20px;
-    max-width: 290px;
-    position: fixed;
-    top: 580px;
-    width: 50%;
-}
-
-.navlink {
-    background-color: var(--container);
-    border-radius: calc(var(--border-radius) * 0.5);
-    border-radius: -moz-calc(var(--border-radius) * 0.5);
-    border-radius: -webkit-calc(var(--border-radius) * 0.5);
-    color: var(--background);
-    padding: 12px 10px 9px 10px;
-    text-align: center;
-    width: 20px;
-}
-
-.navlink:hover {
-    background-color: var(--background);
-    color: var(--accent);
-    transform: scale(1.5);
-    -moz-transform: scale(1.5);
-    -ms-transform: scale(1.5);
-    -o-transform: scale(1.5);
-    -webkit-transform: scale(1.5);
-}
-
-#container img {
-    background-color: var(--accent);
-    border-radius: var(--border-radius);
-    height: 400px;
-    position: fixed;
-    width: 300px;
-}
-
-#content {
-    height: 400px;
-    margin-left: 320px;
-    margin-top: 2px;
-    overflow: auto;
-    -moz-overflow-style: none;
-    -ms-overflow-style: none;
-    -o-overflow-style: none;
-}
-
-#content::-webkit-scrollbar {display: none;}
-
-/* ----------------------------------------------------------------------- */
-/* -------------------------------- text --------------------------------- */
-/* ----------------------------------------------------------------------- */
-
-h1 {
-    font-family: var(--font-special);
-    font-size: 2.5em;
-    font-weight: normal;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-h2 {
-    font-family: var(--font-special);
-    font-size: 1.8em;
-    font-weight: normal;
-    margin: 10px 5px;
-    text-transform: none;
-}
-
-a:hover {color: var(--hover);}
-a {color: var(--link); text-decoration: none;}
-#content a {border-bottom: 3px solid var(--link);}
-#content a:hover {border-bottom: 3px solid var(--hover);}
-
-/* ----------------------------------------------------------------------- */
-/* ---------------------------- transitions ------------------------------ */
-/* ----------------------------------------------------------------------- */
-
-a, a:hover, #content {
-    transition: 0.4s;
-    -moz-transition: 0.4s;
-    -ms-transition: 0.4s;
-    -o-transition: 0.4s;
-    -webkit-transition: 0.4s;
-}
-
-#credit, #credit:hover, img {
-    transition: 0.8s ease-out;
-    -moz-transition: 0.8s ease-out;
-    -ms-transition: 0.8s ease-out;
-    -o-transition: 0.8s ease-out;
-    -webkit-transition: 0.8s ease-out;
-}
-
-blink {animation: blink 1.5s infinite; margin-left: -5px;}
-@keyframes blink { 0% {opacity: 0} 49%{opacity: 0} 50% {opacity: 1} }
-
-/* ----------------------------------------------------------------------- */
-/* ------------------------------- credits ------------------------------- */
-/* ----------------------------------------------------------------------- */
-
-#credit {
-    color: var(--accent);
-    bottom: 0;
-    font-size: 20px;
-    font-style: italic;
-    margin: 10px;
-    padding: 10px 0px;
-    position: fixed;
-    right: 0;
-    text-align: center;
-    width: 40px;
-}
-
-#credit:hover {
-    transform: rotate(360deg) scale(1.5);
-    -moz-transform: rotate(360deg) scale(1.5);
-    -ms-transform: rotate(360deg) scale(1.5);
-    -o-transform: rotate(360deg) scale(1.5);
-    -webkit-transform: rotate(360deg) scale(1.5);
-}
-
-/* ----------------------------------------------------------------------- */
-/* ----------------------------- responsive ------------------------------ */
-/* ----------------------------------------------------------------------- */
-
-@media only screen and (max-width: 700px){
-    #container img {margin-left: -1000px;}
-    #content {margin-left: 0; width: 100%;}
-}
-    
+OVERALL INSPIRATION/BASED OFF AN EDIT BY:
+http://zatarahs.tumblr.com/
+ 
+Please do NOT remove this credit for ANY reason. Doing so will be considered theft. THIS IS YOUR ONLY WARNING.
+ 
+If you are a graphic designer and would also wish to see your edits become coded pieces or have any questions, feel free to inbox me at velasereia.tumblr.com 
+*/
+ 
 </style>
-    
-</head>
-
-<!-------------------------------------------------------------------------->
-<!-------------------------------------------------------------------------->
-<!-------------------------- HEAD & BODY DIVIDER --------------------------->
-<!-------------------------------------------------------------------------->
-<!-------------------------------------------------------------------------->
-
-<body>
-
-<!--------------------------- START MAIN CONTENT---------------------------->
-
-<div id="container">
-
-    <img src="https://img.xatblog.net/image/DWw08qh44JH.gif"> <!-- image -->
-    
-    <div id="content">
-        
-        <h1>𝓒𝒉𝒂𝒊<blink> ☁</blink></h1> <!-- main title -->
-        
-<i> I'm from Chicago,IL; birthdate August 16th, listening to lofi and reading romance mangas soothes my soul. I'm mostly on discord rolling for waifus in our server, working, and possibly sleeping. My time is precious to me so please be worth it. It's hard to make me upset, but I won't hold back when I am. Spark my interest w/ some anime, marvel, food, and jpop/kpop! Small talk is boring so lets get to know one another!</i>  <b>message me sometime..</b>
-
-<br><br>
-
-
-<h2>𝒔𝒘𝒆𝒆𝒕 𝒒𝒖𝒐𝒕𝒆𝒔 <blink> ♡</blink></h2>
-
-"𝘖𝘩𝘩𝘩, 𝘐 𝘸𝘪𝘴𝘩 𝘐 𝘤𝘰𝘶𝘭𝘥 𝘭𝘪𝘷𝘦 𝘧𝘪𝘷𝘦 𝘵𝘪𝘮𝘦𝘴 𝘰𝘷𝘦𝘳. 𝘛𝘩𝘦𝘯 𝘐'𝘥 𝘣𝘦 𝘣𝘰𝘳𝘯 𝘪𝘯 𝘧𝘪𝘷𝘦 𝘥𝘪𝘧𝘧𝘦𝘳𝘦𝘯𝘵 𝘱𝘭𝘢𝘤𝘦𝘴, 𝘢𝘯𝘥 𝘐'𝘥 𝘴𝘵𝘶𝘧𝘧 𝘮𝘺𝘴𝘦𝘭𝘧 𝘸𝘪𝘵𝘩 𝘥𝘪𝘧𝘧𝘦𝘳𝘦𝘯𝘵 𝘧𝘰𝘰𝘥 𝘧𝘳𝘰𝘮 𝘢𝘳𝘰𝘶𝘯𝘥 𝘵𝘩𝘦 𝘸𝘰𝘳𝘭𝘥...𝘐'𝘥 𝘭𝘪𝘷𝘦 𝘧𝘪𝘷𝘦 𝘥𝘪𝘧𝘧𝘦𝘳𝘦𝘯𝘵 𝘭𝘪𝘷𝘦𝘴 𝘸𝘪𝘵𝘩 𝘧𝘪𝘷𝘦 𝘥𝘪𝘧𝘧𝘦𝘳𝘦𝘯𝘵 𝘰𝘤𝘤𝘶𝘱𝘢𝘵𝘪𝘰𝘯𝘴...𝘈𝘯𝘥 𝘵𝘩𝘦𝘯, 𝘧𝘰𝘳 𝘵𝘩𝘰𝘴𝘦 𝘧𝘪𝘷𝘦 𝘵𝘪𝘮𝘦𝘴...𝘐'𝘥 𝘧𝘢𝘭𝘭 𝘪𝘯 𝘭𝘰𝘷𝘦 𝘸𝘪𝘵𝘩 𝘵𝘩𝘦 𝘴𝘢𝘮𝘦 𝘱𝘦𝘳𝘴𝘰𝘯..."
-                       -𝘐𝘯𝘰𝘶𝘦 𝘖𝘳𝘪𝘩𝘪𝘮𝘦, '𝘉𝘭𝘦𝘢𝘤𝘩'.
-    
-     <br><br>
-     
-     "𝘐𝘵’𝘴 𝘪𝘮𝘱𝘰𝘴𝘴𝘪𝘣𝘭𝘦 𝘵𝘰 𝘧𝘦𝘦𝘭 𝘦𝘹𝘢𝘤𝘵𝘭𝘺 𝘵𝘩𝘦 𝘴𝘢𝘮𝘦 𝘢𝘴 𝘴𝘰𝘮𝘦𝘰𝘯𝘦 𝘦𝘭𝘴𝘦… 𝘣𝘶𝘵 𝘸𝘩𝘦𝘯 𝘺𝘰𝘶 𝘣𝘰𝘵𝘩 𝘤𝘢𝘳𝘦 𝘧𝘰𝘳 𝘦𝘢𝘤𝘩 𝘰𝘵𝘩𝘦𝘳, 𝘺𝘰𝘶𝘳 𝘩𝘦𝘢𝘳𝘵𝘴 𝘢𝘳𝘦 𝘢𝘣𝘭𝘦 𝘵𝘰 𝘥𝘳𝘢𝘸 𝘢 𝘭𝘪𝘵𝘵𝘭𝘦 𝘤𝘭𝘰𝘴𝘦𝘳 𝘵𝘰𝘨𝘦𝘵𝘩𝘦𝘳. 𝘪 𝘵𝘩𝘪𝘯𝘬 𝘵𝘩𝘢𝘵’𝘴 𝘸𝘩𝘢𝘵 𝘪𝘵 𝘮𝘦𝘢𝘯𝘴 𝘵𝘰 𝘮𝘢𝘬𝘦 𝘺𝘰𝘶𝘳 𝘩𝘦𝘢𝘳𝘵𝘴 𝘢𝘴 𝘰𝘯𝘦."   
-       <br>
-              -𝘐𝘯𝘰𝘶𝘦 𝘖𝘳𝘪𝘩𝘪𝘮𝘦, '𝘉𝘭𝘦𝘢𝘤𝘩'.     
-    </div>
-    
-    <!-- navigation -->
-    
-    <div id="navigation">
-    
-        <!-- home link -->
-        
-        <a class="navlink" title="home" href="https://xat.com/animeandvamps">
-            <i class="fas fa-home"></i>
-        </a>
-        
-        <!-- ask link -->
-        
-        <a class="navlink" title="mamachaii#0016" href="https://discord.gg/Z2rAmTpZ">
-            <i class="fas fa-envelope"></i>
-        </a>
-        
-        <!-- custom link 1 -->
-        
-        <a class="navlink" title="Papa" href="https://xat.me/Isaac">
-            <i class="fas fa-user"></i>
-        </a>
-        
-        <!-- custom link 2 -->
-        
-        <a class="navlink" title="Zan" href="https://xat.me/AylenArcadia">
-            <i class="fas fa-user"></i>
-        </a>
-        
-        <!-- custom link 3 -->
-        
-        <a class="navlink" title="Sonic" href="https://xat.me/MisterHedgehog">
-            <i class="fas fa-user"></i>
-        </a>
-     
-      <!-- custom link 4 -->
-        
-        <a class="navlink" title="Raid" href="https://xat.me/xRaidSendo">
-            <i class="fas fa-user"></i>
-        </a>
-        
-    </div>
-    
-</div>
-
-<!---------------------------- END MAIN CONTENT----------------------------->
-
-<!-- don't edit beyond this point please! colors can be modified in <style> -->
-
-<a id="credit" target="blank" title="by bones" href="https://nuclearthemes.tumblr.com/"><i class="fas fa-skull"></i></a>
-
-<script src="https://unpkg.com/popper.js@1"></script>
-<script src="https://unpkg.com/tippy.js@5/dist/tippy-bundle.iife.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/tippy.js@5/dist/svg-arrow.css" />
-
+ 
+ 
 <script>
-    tippy('[title]', {
-        theme: 'custom',
-        arrow: false,
-        delay: [100, 50],
-        placement: 'right',
-        zIndex: 9999999999,
-        maxWidth: 300,
-
-        content(reference) {
-            const title = reference.getAttribute('title');
-            reference.removeAttribute('title');
-            return title;
-        },
-    });
+  var divs = ["containertwo", "containerthree", "containerfour", "containerfive"];
+  var visibleDivId = null;
+ 
+  function toggleVisibility(divId) {
+    if (visibleDivId === divId) {
+      visibleDivId = null;
+ 
+    } else {
+      visibleDivId = divId;
+ 
+    }
+ 
+    hideNonVisibleDivs();
+  }
+ 
+  function hideNonVisibleDivs() {
+    var i, divId, div;
+ 
+    for (i = 0; i < divs.length; i++) {
+      divId = divs[i];
+      div = document.getElementById(divId);
+ 
+      if (visibleDivId === divId) {
+        div.style.display = "block";
+ 
+ 
+      } else {
+        div.style.display = "none";
+      }
+    }
+  }
+ 
 </script>
+ 
+<style>
+  body {
+    background-color: #b1586f;
+  }
+ 
+  ::-webkit-scrollbar {
+    width: 3px;
+    height: 10px;
+    padding-top: 40px;
+  }
+ 
+  ::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+ 
+  ::-webkit-scrollbar-thumb {
+    background-color: #624f53;
+    height: 30px;
+    width: 3px;
+  }
+ 
+  ::-webkit-scrollbar-track-piece {
+    height: 30px;
+    width: 30px;
+  }
+ 
+  ::-moz-selection,
+  ::selection {
+    background-color: #179ab8;
+    color: #624f53;
+  }
+ 
+  ::selection {
+    background-color: #179ab8;
+    color: #624f53;
+  }
+ 
+  b {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #624f53;
+  }
+ 
+  i {
+    font-family: georgia;
+    font-size: 11px;
+    color: #c7206e;
+    letter-spacing: -1px;
+  }
+ 
+  .container {
+    background-color: #transparent;
+    width: 800px;
+    height: 300px;
+    margin: auto;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+ 
+  .midcontainer {
+    z-index: 9;
+    background-color: #faf2f4;
+    width: 250px;
+    height: 250px;
+    margin-left: 280px;
+    position: absolute;
+  }
+ 
+  .midheadings {
+    background-color: #transparent;
+    position: absolute;
+    width: 130px;
+    height: 40px;
+    z-index: 10;
+    margin-left: 125px;
+    margin-top: 30px;
+  }
+ 
+  .midheadings h1 {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    color: #b1586f;
+    font-size: 12px;
+    text-align: center;
+    letter-spacing: 3px;
+    font-family: arial;
+    text-transform: uppercase;
+  }
+ 
+  .midheadings h2 {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    color: #b1586f;
+    font-size: 8px;
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: arial;
+    text-transform: uppercase;
+  }
+ 
+  .rightmidimg {
+    z-index: 8;
+    background-color: #transparent;
+    height: 250px;
+    width: 125px;
+    margin-left: 125px;
+    position: absolute;
+  }
+ 
+  .middleblock {
+    z-index: 9;
+    background-color: #ce8396;
+    width: 110px;
+    height: 110px;
+    margin-top: 70px;
+    margin-left: 70px;
+    position: absolute;
+  }
+ 
+  .midimg {
+    position: absolute;
+    margin-top: 45px;
+    margin-left: 26px;
+    width: 50px;
+    height: 60px;
+  }
+ 
+  .leftmidhead {
+    position: absolute;
+    background-color: #transparent;
+    width: 50px;
+    height: 250px;
+    margin-top: 15px;
+    margin-left: 25px;
+    letter-spacing: 2px;
+  }
+ 
+  .leftmidhead h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 30px;
+    color: #b1586f;
+    text-transform: uppercase;
+    -ms-transform: rotate(905deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    margin: 0px;
+    padding: 0px;
+  }
+ 
+  .rightmidhead {
+    z-index: 9;
+    position: absolute;
+    background-color: #transparent;
+    width: 50px;
+    height: 50px;
+    margin-top: 150px;
+    margin-left: 160px;
+  }
+ 
+  .rightmidhead h1 {
+    font-family: Arial;
+    font-size: 55px;
+    color: transparent;
+    text-shadow: 0 0 0 pink;
+    margin: 0px;
+    padding: 0px;
+  }
+ 
+  .toggleone {
+    display: inline-block;
+    background-color: #faf2f4;
+    width: 70px;
+    height: 20px;
+    font-family: Arial;
+    font-size: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #68adbd;
+    line-height: 23px;
+    letter-spacing: 2px;
+    position: absolute;
+    margin-left: -35px;
+    margin-top: 15px;
+    z-index: 10;
+    -webkit-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -o-transition: all .8s ease-in-out;
+  }
+ 
+  .toggleone:hover {
+    background-color: #c7206e;
+    color: #faf2f4;
+  }
+ 
+  #containerone {
+    background-color: #transparent;
+    width: 800px;
+    height: 250px;
+    margin-left: -280px;
+    margin-top: 0px;
+    position: absolute;
+    z-index: 5;
+  }
+ 
+  .sub2 {
+    background-color: #624f53;
+    width: 250px;
+    height: 250px;
+    margin-left: 10px;
+  }
+ 
+  .sub2 img {
+    z-index: 8;
+    background-color: #transparent;
+    height: 250px;
+    width: 125px;
+    margin-left: 0px;
+    position: absolute;
+  }
+ 
+  .leftic {
+    background-color: #faf2f4;
+    width: 70px;
+    height: 70px;
+    border: solid 10px #faf2f4;
+    position: absolute;
+    margin-lefT: 143px;
+    margin-top: 20px;
+  }
+ 
+  .leftic img {
+    z-index: 8;
+    background-color: #transparent;
+    height: 70px;
+    width: 70px;
+    margin-left: 0px;
+    position: absolute;
+  }
+ 
+  .lefttext {
+    background-color: #transparent;
+    width: 95px;
+    height: 110px;
+    position: absolute;
+    margin-left: 140px;
+    margin-top: 125px;
+    color: #faf2f4;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 15px;
+    text-align: right;
+    font-style: italic;
+  }
+ 
+  .leftbox {
+    background-color: #faf2f4;
+    width: 105px;
+    height: 230px;
+    padding: 10px;
+    position: absolute;
+    z-index: 11;
+    font-family: calibri;
+    overflow: hidden;
+    font-size: 10px;
+    text-transform: ;
+    color: #626262;
+    opacity: 0;
+    -webkit-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -o-transition: all .8s ease-in-out;
+  }
+ 
+  .leftbox:hover {
+    width: 230px;
+    opacity: 1;
+  }
+ 
+  .leftbox h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 45px;
+    color: #b1586f;
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+ 
+  .leftbox h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 8px;
+    text-align: center;
+    letter-spacing: 4px;
+    margin: 0px 0px -5px 0px;
+    color: #c7206e;
+  }
+ 
+  .leftbox h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 8px;
+    text-align: center;
+    letter-spacing: 4px;
+    margin: -8px 0px 0px 0px;
+    color: #c7206e;
+  }
+ 
+  .sub3 {
+    background-color: #faf2f4;
+    width: 250px;
+    height: 250px;
+    margin-top: -250px;
+    margin-left: 550px;
+    position: absolute;
+  }
+ 
+  .righthead h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 35px;
+    color: #b1586f;
+    text-transform: uppercase;
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+    text-align: center;
+  }
+ 
+  .rightimg {
+    background-color: #624f53;
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    margin-left: 40px;
+  }
+ 
+  .righthovercont {
+    position: absolute;
+    background-color: #transparent;
+    width: 250px;
+    height: 200px;
+    -webkit-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -o-transition: all .8s ease-in-out;
+    opacity: 0;
+    overflow: hidden;
+  }
+ 
+  .righthovercont:hover {
+    opacity: 1;
+    height: 500px;
+  }
+ 
+  .righthovercontlinks {
+    background-color: #transparent;
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    margin-left: 40px;
+    margin-top: 15px;
+  }
+ 
+  .toggletwo {
+    display: inline-block;
+    background-color: #f2b4c2;
+    width: 100px;
+    height: 30px;
+    font-family: Arial;
+    font-size: 8px;
+    text-decoration: none;
+    text-align: center;
+    font-style: italic;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 30px;
+    letter-spacing: 2px;
+    z-index: 10;
+    margin-bottom: 5px;
+    margin-left: 35px;
+    -webkit-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -o-transition: all .8s ease-in-out;
+  }
+ 
+  .toggletwo:hover {
+    background-color: #624f53;
+    color: #fff;
+  }
+ 
+  #containertwo {
+    position: absolute;
+    background-color: #faf2f4;
+    width: 250px;
+    height: 250px;
+    margin-top: 220px;
+    font-family: calibri;
+    overflow: hidden;
+    font-size: 10px;
+    color: #626262;
+  }
+ 
+  #containerthree a {
+    text-decoration: none;
+    color: #b1586f;
+    font-family: calibri;
+    font-size: 10px;
+    text-transform: uppercase;
+    -webkit-transition: all .5s ease-in-out;
+  }
+ 
+  #containerthree a:hover {
+    color: #624f53;
+  }
+ 
+  #containerthree {
+    position: absolute;
+    background-color: #faf2f4;
+    width: 250px;
+    height: 250px;
+    margin-top: 220px;
+    font-family: calibri;
+    overflow: hidden;
+    font-size: 10px;
+    color: #624f53;
+  }
+ 
+  #containerfour {
+    position: absolute;
+    background-color: #faf2f4;
+    width: 250px;
+    height: 250px;
+    margin-top: 220px;
+    font-family: calibri;
+    overflow: hidden;
+    font-size: 10px;
+    color: #626262;
+  }
+ 
+  #containerfive {
+    position: absolute;
+    background-color: #faf2f4;
+    width: 250px;
+    height: 250px;
+    margin-top: 220px;
+    font-family: calibri;
+    overflow: hidden;
+    font-size: 10px;
+    color: #626262;
+  }
+ 
+  .righthovercont h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 45px;
+    color: #ce8396;
+    text-transform: uppercase;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+ 
+  .righthovercont h2 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 8px;
+    text-align: center;
+    letter-spacing: 4px;
+    margin: 5px 0px -5px 0px;
+    color: #c7206e;
+  }
+ 
+  .righthovercont h3 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 8px;
+    text-align: center;
+    letter-spacing: 4px;
+    margin: -8px 0px 0px 0px;
+    color: #624f53;
+  }
+  /* MENU DROPDOWN by FUKUO */
+ 
+  #menu-dropdown {
+    width: 80px;
+    height: 20px;
+    overflow: hidden;
+    margin: 10px 0px 0px 16px;
+    /* YOU HAVE TO CHANGE THIS, CHANGE IT BASED ON THE CONTENT YOU MAKE. */
+    -webkit-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -o-transition: all .8s ease-in-out;
+  }
+ 
+  #menu-dropdown:hover {
+    height: 300px;
+    /* The height on hover, it's transparent so you can not see it */
+  }
+ 
+  #menu-dropdown span {
+    display: block;
+    width: 80px;
+    /* This is same as shown above */
+    height: 20px;
+    background-color: #ffffff;
+    /* Background */
+    color: #b1586f;
+    /* Color .. */
+    font-family: arial;
+    /* Font.. */
+    text-transform: uppercase;
+    /* Text on uppercase .. */
+    font-size: 8px;
+    /* Font size .. */
+    text-align: center;
+    line-height: 20px;
+    font-style: italic;
+    letter-spacing: 5px;
+    margin-bottom: 2px;
+  }
+ 
+  .menubar-drop {
+    background-color: #transparent;
+    /* It's the background of the content that contains a links */
+    width: 80px;
+    /* Yes, the width of the content */
+    height: 20px;
+    color: white;
+    /* Color .. */
+    font-family: arial;
+    text-transform: uppercase;
+    font-size: 8px;
+    text-align: center;
+  }
+ 
+  .menubar-drop a {
+    display: block;
+    font-size: 8px;
+    margin-top: 3px;
+    width: 80px;
+    height: 20px;
+    background-color: #f2b4c2;
+    /* Background.. */
+    text-decoration: none;
+    color: white;
+    /* Color .. */
+    line-height: 20px;
+    -webkit-transition: all .8s ease-in-out;
+    -moz-transition: all .8s ease-in-out;
+    -o-transition: all .8s ease-in-out;
+  }
+ 
+  .menubar-drop a:hover {
+    background-color: #624f53;
+  }
+ 
+  ul {
+    list-style-type: hiragana;
+    margin: 0px;
+    font-size: 9px;
+  }
+ 
+  .icimg {
+    width: 25px;
+    height: 25px;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border: solid 3px #c7206e;
+    padding: 1px;
+    opacity: .5;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+  }
+ 
+  .icimg:hover {
+    opacity: .8;
+  }
+ 
+</style>
+ 
+ 
+<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow:400i" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Archivo+Narrow|Fjalla+One|Open+Sans+Condensed:300|Oswald|Roboto+Condensed|Sansita|Yanone+Kaffeesatz" rel="stylesheet">
+ 
+<div class="container">
+  <div class="midcontainer">
+ 
+    <!-- THIS IS EVERYTHING IN THE MIDDLE. The image is 150 x 250px -->
+ 
+    <div class="midheadings">
+      <h1>恐竜</h1>
+      <h2>Kyōryū</h2>
+    </div>
+ 
+    <div class="rightmidimg">
+      <img src="https://i.ibb.co/KLqN3s3/boccbody.png">
+    </div>
+ 
+ 
+ 
+    <div class="middleblock">
+      <div id="menu-dropdown">
+        <span>Cuties</span>
+        <div class="menubar-drop">
+          <a href="https://xat.me/Chaii">Chai</a>
+          <a href="https://xat.me/TheFoolArcana">Matt</a>
+          <a href="https://xat.me/UnidentifiedAsh">Ash</a>
+        </div>
+      </div>
+    </div>
+ 
+ 
+ 
+    <div class="leftmidhead">
+      <h1>Nanaseo</h1>
+    </div>
+ 
+    <div class="rightmidhead">
+      <h1>🦖</h1>
+    </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    <div id="containerone">
+ 
+ 
+      <!-- THIS IS EVERYTHING IN THE LEFT BOX.-->
+ 
+      <div class="sub2">
+ 
+        <!-- THIS IS THE BIG IMAGE. 150 x 250px.-->
+        <img src="https://i.ibb.co/c64FkVg/boccbody2.png">
+ 
+        <div class="leftic">
+          <!-- THIS IS THE ICON IMAGE. 70 x 70px.-->
+          <img src="https://i.ibb.co/QnFXKx5/boccface2.png">
+        </div>
+ 
+        <div class="lefttext">
+          <br>
+          <br> Just your local scaredy cat
+          <br> Please be nice and patient.
+        </div>
+ 
+ 
+        <div class="leftbox">
+          <h2>Hello nice to meet you i'm</h2>
+          <h1>Nanaseo</h1>
+          <h3>But most just call me Nana</h3>
+          <br>
+          <fieldset style="width: 210px; height: 140px; overflow: auto; border: 0px solid #fff;">
+ 
+            Don't be scared say hi! <i>I'm not mean unless you're annoying,</i> I'm pretty friendly <b>sometimes.</b> <i>I'm pretty simple,</i> It doesn't take a lot to make me <b>happy!</b> Once we're friends, <i>I can be pretty clingy!</i> Ask me some <b>questions,</b> <i>If you'd like to get to know me.</i> But be warned, I'm <b>boring!</b>
+            <br>
+            <br> Here's a few things I like! <i>I like anime.</i> I like to watch <b>twitch.</b> <i>Yu-Gi-Oh!</i> Magic The Gathering <b>Dinosaurs!</b> Energy Drinks <i>Music, specifically Pop Punk</i> or any other kind of <b>rock!</b> <i>I also like Pokemon</i> Heart Gold is my favorite game, <b>Gengar</b> is my favorite Pokemon!
+          </fieldset>
+        </div>
+      </div>
+ 
+ 
+ 
+ 
+      <!-- THIS IS EVERYTHING IN THE RIGHT BOX. The image is 170 x 170px -->
+      <div class="sub3">
+        <div class="righthead">
+          <h1>Nana</h1>
+        </div>
+ 
+        <div class="rightimg">
+          <img src="https://i.ibb.co/hVNqgV3/boccface1.png">
+        </div>
+ 
+ 
+        <div class="righthovercont">
+          <div class="righthovercontlinks">
+            <a href="#" onclick="toggleVisibility('containertwo');" title="about" class="toggletwo">I</a>
+            <a href="#" onclick="toggleVisibility('containerthree');" title="tags" class="toggletwo">II</a>
+            <a href="#" onclick="toggleVisibility('containerfour');" title="blogroll" class="toggletwo">III</a>
+            <a href="#" onclick="toggleVisibility('containerfive');" title="extra" class="toggletwo">IV</a>
+          </div>
+ 
+ 
+ 
+ 
+ 
+          <div id="containertwo" style="display: normal;">
+            <h2>So you wanna know some more</h2>
+            <h1>ABOUT ME</h1>
+            <h3>I'm not sure what else I can say</h3>
+            <br>
+            <fieldset style="width: 225px; height: 150px; overflow: auto; border: 0px solid #fff;">
+              I'm from England <i>Late Twenties</i> I'm currently <b>single.</b> <i>Relationships are hard.</i> How can you love if you can't love <b>yourself.</b> I like to play games, <i>I like FPS and RPGs.</i> My favorite series is <b>fallout.</b> <i>And it was before the show.</i> Most recently I've enjoyed <b>cyberpunk!</b>
+              <br>
+              <br> I'm not sure what else to put. <i>If there's anything you'd like to know,</i> feel free to <b>ask!</b> <i>Sometimes I reply slow,</i> I'm often keeping myself <b>busy.</b>  <i></i>  <b></b> <i></i> <b></b> 
+            </fieldset>
+          </div>
+ 
+ 
+ 
+ 
+ 
+ 
+          <div id="containerthree" style="display: none;">
+            <h2>Things that I</h2>
+            <h1>Like</h1>
+            <h3>But there's a lot more!</h3>
+            <fieldset style="width: 225px; height: 150px; overflow: auto; border: 0px solid #fff;">
+ 
+              <h2>ANIME/MANGA </h2>
+              <ul class="a">
+                <a href="/">
+                  <li>Bocchi The Rock</li>
+                </a>
+                <a href="/">
+                  <li>Lycoris Recoil</li>
+                </a>
+                <a href="/">
+                  <li>Mushoku Tensei</li>
+                </a>
+                <a href="/">
+                  <li>Bleach</li>
+                </a>
+              </ul>
+ 
+              <h2>MOVIE </h2>
+              <ul class="a">
+                <a href="/">
+                  <li>Scott Pilgrim vs The World</li>
+                </a>
+                <a href="/">
+                  <li>Jurassic Park</li>
+                </a>
+                <a href="/">
+                  <li>Zombieland</li>
+                </a>
+                <a href="/">
+                  <li>Godzilla</li>
+                </a>
+              </ul>
+ 
+              <h2>MUSIC </h2>
+              <ul class="a">
+                <a href="/">
+                  <li>Linkin Park</li>
+                </a>
+                <a href="/">
+                  <li>Bring Me The Horizon</li>
+                </a>
+                <a href="/">
+                  <li>All Time Low</li>
+                </a>
+                <a href="/">
+                  <li>Electric Callboy</li>
+                </a>
+              </ul>
+            </fieldset>
+          </div>
+ 
+ 
+ 
+ 
+ 
+ 
+          <div id="containerfour" style="display: none;">
+            <h2>SO MANY THINGS TO WRITE</h2>
+            <h1>IDK</h1>
+            <h3>AAAAAAAAAAAAAAAAAA</h3>
+            <br>
+            <fieldset style="width: 250px; height: 250px; overflow: auto; border: 0px solid #fff;">
+              <center><img src="https://media.tenor.com/_DP3L9R9cMcAAAAi/bocchi-the-rock.gif" alt="me irl">
 
-</body>
-
-</html>
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+</center>
+            </fieldset>
+          </div>
+ 
+ 
+ 
+ 
+ 
+ 
+          <div id="containerfive" style="display: none;">
+            <h2>MEOW</h2>
+            <h1>MEOW</h1>
+            <h3>MEOW</h3>
+            <fieldset style="width: 225px; height: 150px; overflow: auto; border: 0px solid #fff;">
+ 
+              MEOW <i>MEOW</i> MEOW <b>MEOW</b> <i>MEOW</i> MEOW <b>MEOW</b> MEOW <i>MEOW</i> MEOW<b>MEOW</b> <i>MEOW</i> MEOW <b>MEOW</b> MEOW
+              <br>
+              <br> MEOW <i>MEOW</i> MEOW <b>MEOW</b> <i>MEOW</i> MEOW <b>MEOW</b> MEOW <i>MEOW</i> MEOW <b>MEOW</b> <i>MEOW</i> MEOW <b>MEOW</b> Fok I'm Restarted.
+            </fieldset>
+          </div>
+ 
+ 
+ 
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+ 
+ 
+ 
+ 
+ 
+  <style>
+    .lovely {
+      position: fixed;
+      right: 3px;
+      bottom: 3px;
+    }
+ 
+    .lovely a {
+      font-family: calibri;
+      font-size: 9px;
+      text-transform: uppercase;
+      color: #ffffff;
+      letter-spacing: 0px;
+      text-decoration: none;
+      -webkit-transition: all .5s ease-in-out;
+      -moz-transition: .5s ease-in-out;
+    }
+ 
+    .lovely a:hover {
+      color: #000;
+    }
+ 
+  </style>
+ 
+ 
+  <div class="lovely">
+    <a href="https://www.youtube.com/watch?v=vMtMUTYc314">glock</a>
+  </div>
